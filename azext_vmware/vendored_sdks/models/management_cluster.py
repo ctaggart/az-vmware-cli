@@ -16,6 +16,10 @@ class ManagementCluster(ClusterUpdateProperties):
 
     :param cluster_size: The cluster size
     :type cluster_size: int
+    :param provisioning_state: The state of the cluster provisioning. Possible
+     values include: 'Succeeded', 'Failed', 'Cancelled', 'Deleting', 'Updating'
+    :type provisioning_state: str or
+     ~vendored_sdks.models.ClusterProvisioningState
     :ivar cluster_id: The identity
     :vartype cluster_id: int
     :ivar hosts: The hosts
@@ -29,11 +33,13 @@ class ManagementCluster(ClusterUpdateProperties):
 
     _attribute_map = {
         'cluster_size': {'key': 'clusterSize', 'type': 'int'},
+        'provisioning_state': {'key': 'provisioningState', 'type': 'str'},
         'cluster_id': {'key': 'clusterId', 'type': 'int'},
         'hosts': {'key': 'hosts', 'type': '[str]'},
     }
 
     def __init__(self, **kwargs):
         super(ManagementCluster, self).__init__(**kwargs)
+        self.provisioning_state = kwargs.get('provisioning_state', None)
         self.cluster_id = None
         self.hosts = None

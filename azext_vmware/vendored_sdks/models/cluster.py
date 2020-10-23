@@ -26,14 +26,14 @@ class Cluster(Resource):
     :type sku: ~vendored_sdks.models.Sku
     :param cluster_size: The cluster size
     :type cluster_size: int
+    :param provisioning_state: The state of the cluster provisioning. Possible
+     values include: 'Succeeded', 'Failed', 'Cancelled', 'Deleting', 'Updating'
+    :type provisioning_state: str or
+     ~vendored_sdks.models.ClusterProvisioningState
     :ivar cluster_id: The identity
     :vartype cluster_id: int
     :ivar hosts: The hosts
     :vartype hosts: list[str]
-    :ivar provisioning_state: The state of the cluster provisioning. Possible
-     values include: 'Succeeded', 'Failed', 'Cancelled', 'Deleting', 'Updating'
-    :vartype provisioning_state: str or
-     ~vendored_sdks.models.ClusterProvisioningState
     """
 
     _validation = {
@@ -43,7 +43,6 @@ class Cluster(Resource):
         'sku': {'required': True},
         'cluster_id': {'readonly': True},
         'hosts': {'readonly': True},
-        'provisioning_state': {'readonly': True},
     }
 
     _attribute_map = {
@@ -52,15 +51,15 @@ class Cluster(Resource):
         'type': {'key': 'type', 'type': 'str'},
         'sku': {'key': 'sku', 'type': 'Sku'},
         'cluster_size': {'key': 'properties.clusterSize', 'type': 'int'},
+        'provisioning_state': {'key': 'properties.provisioningState', 'type': 'str'},
         'cluster_id': {'key': 'properties.clusterId', 'type': 'int'},
         'hosts': {'key': 'properties.hosts', 'type': '[str]'},
-        'provisioning_state': {'key': 'properties.provisioningState', 'type': 'str'},
     }
 
     def __init__(self, **kwargs):
         super(Cluster, self).__init__(**kwargs)
         self.sku = kwargs.get('sku', None)
         self.cluster_size = kwargs.get('cluster_size', None)
+        self.provisioning_state = kwargs.get('provisioning_state', None)
         self.cluster_id = None
         self.hosts = None
-        self.provisioning_state = None

@@ -13,6 +13,11 @@ try:
     from .error_additional_info_py3 import ErrorAdditionalInfo
     from .error_response_py3 import ErrorResponse
     from .operation_display_py3 import OperationDisplay
+    from .log_specification_py3 import LogSpecification
+    from .metric_dimension_py3 import MetricDimension
+    from .metric_specification_py3 import MetricSpecification
+    from .service_specification_py3 import ServiceSpecification
+    from .operation_properties_py3 import OperationProperties
     from .operation_py3 import Operation
     from .express_route_authorization_py3 import ExpressRouteAuthorization
     from .circuit_py3 import Circuit
@@ -35,6 +40,11 @@ except (SyntaxError, ImportError):
     from .error_additional_info import ErrorAdditionalInfo
     from .error_response import ErrorResponse
     from .operation_display import OperationDisplay
+    from .log_specification import LogSpecification
+    from .metric_dimension import MetricDimension
+    from .metric_specification import MetricSpecification
+    from .service_specification import ServiceSpecification
+    from .operation_properties import OperationProperties
     from .operation import Operation
     from .express_route_authorization import ExpressRouteAuthorization
     from .circuit import Circuit
@@ -60,8 +70,8 @@ from .avs_client_enums import (
     ExpressRouteAuthorizationProvisioningState,
     SslEnum,
     PrivateCloudProvisioningState,
-    InternetEnum,
     ClusterProvisioningState,
+    InternetEnum,
     HcxEnterpriseSiteStatus,
 )
 
@@ -73,6 +83,11 @@ __all__ = [
     'ErrorAdditionalInfo',
     'ErrorResponse',
     'OperationDisplay',
+    'LogSpecification',
+    'MetricDimension',
+    'MetricSpecification',
+    'ServiceSpecification',
+    'OperationProperties',
     'Operation',
     'ExpressRouteAuthorization',
     'Circuit',
@@ -97,7 +112,7 @@ __all__ = [
     'ExpressRouteAuthorizationProvisioningState',
     'SslEnum',
     'PrivateCloudProvisioningState',
-    'InternetEnum',
     'ClusterProvisioningState',
+    'InternetEnum',
     'HcxEnterpriseSiteStatus',
 ]

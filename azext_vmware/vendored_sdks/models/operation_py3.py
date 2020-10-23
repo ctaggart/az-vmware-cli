@@ -19,6 +19,13 @@ class Operation(Model):
     :ivar display: Contains the localized display information for this
      operation
     :vartype display: ~vendored_sdks.models.OperationDisplay
+    :param is_data_action: Gets or sets a value indicating whether the
+     operation is a data action or not
+    :type is_data_action: bool
+    :param origin: Origin of the operation
+    :type origin: str
+    :param properties: Properties of the operation
+    :type properties: ~vendored_sdks.models.OperationProperties
     """
 
     _validation = {
@@ -29,9 +36,15 @@ class Operation(Model):
     _attribute_map = {
         'name': {'key': 'name', 'type': 'str'},
         'display': {'key': 'display', 'type': 'OperationDisplay'},
+        'is_data_action': {'key': 'isDataAction', 'type': 'bool'},
+        'origin': {'key': 'origin', 'type': 'str'},
+        'properties': {'key': 'properties', 'type': 'OperationProperties'},
     }
 
-    def __init__(self, **kwargs) -> None:
+    def __init__(self, *, is_data_action: bool=None, origin: str=None, properties=None, **kwargs) -> None:
         super(Operation, self).__init__(**kwargs)
         self.name = None
         self.display = None
+        self.is_data_action = is_data_action
+        self.origin = origin
+        self.properties = properties
